@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PhotoCloud.Api.WebApiConfig">
+    <Position X="7.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\WebApiConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhotoCloud.Api.WebApiApplication">
+    <Position X="7.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhotoCloud.Api.Controllers.PhotosController">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAEAAAAAAAEAAAAAACAAAIAAA=</HashCode>
+      <FileName>Controllers\PhotosController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhotoCloud.Api.Providers.DefaultFormDataStreamProvider">
+    <Position X="1" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Providers\DefaultFormDataStreamProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhotoCloud.Infrastructure.Data.EF.PhotoCloudDbContext">
+    <Position X="1" Y="3.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PhotoCloud.Infrastructure.Data.EF.Repositories.PhotoRepository">
+    <Position X="3.25" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+    <Lollipop Position="0.1" />
+  </Class>
+  <Class Name="PhotoCloud.Api.Models.PhotoModel">
+    <Position X="5.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="PhotoCloud.Models.Photo">
+    <Position X="7.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="PhotoCloud.Pages.PhotosPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PhotoCloud.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="GridViewPhotoStyle" TargetType="GridViewItem">
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="IsHoldingEnabled" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GridViewItem">
+                        <ListViewItemPresenter CheckBrush="{ThemeResource SystemControlForegroundBaseMediumHighBrush}" ContentMargin="{TemplateBinding Padding}" CheckMode="Overlay" ContentTransitions="{TemplateBinding ContentTransitions}" CheckBoxBrush="{ThemeResource SystemControlBackgroundChromeMediumBrush}" DragForeground="{ThemeResource ListViewItemDragForegroundThemeBrush}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" DragBackground="{ThemeResource ListViewItemDragBackgroundThemeBrush}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" FocusBorderBrush="{ThemeResource SystemControlForegroundAltHighBrush}" FocusSecondaryBorderBrush="{ThemeResource SystemControlForegroundBaseHighBrush}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" PointerOverForeground="{ThemeResource SystemControlForegroundBaseHighBrush}" PressedBackground="{ThemeResource SystemControlHighlightListMediumBrush}" PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" PointerOverBackground="{ThemeResource SystemControlHighlightListLowBrush}" ReorderHintOffset="{ThemeResource GridViewItemReorderHintThemeOffset}" SelectedPressedBackground="{ThemeResource SystemControlHighlightListAccentHighBrush}" SelectionCheckMarkVisualEnabled="True" SelectedForeground="{ThemeResource SystemControlForegroundBaseHighBrush}" SelectedPointerOverBackground="{ThemeResource SystemControlHighlightListAccentMediumBrush}" SelectedBackground="{ThemeResource SystemControlHighlightAccentBrush}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="#FFF0F0F0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="75" MinWidth="75"/>
+                <ColumnDefinition Width="75" MinWidth="75"/>
+                <ColumnDefinition Width="75" MinWidth="75"/>
+            </Grid.ColumnDefinitions>
+            <Button Foreground="Green" Content="&#xE117;" Style="{StaticResource TextBlockButtonStyle}" FontFamily="Segoe MDL2 Assets" FontSize="34" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="RefreshClick"/>
+            <TextBlock Foreground="Green" Text="PHOTOCLOUD" FontWeight="ExtraBold" FontSize="34" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Column="1"/>
+            <Button Foreground="Green" Content="&#xE109;" Style="{StaticResource TextBlockButtonStyle}" FontFamily="Segoe MDL2 Assets" FontSize="34" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="UploadClick" Grid.Column="2"/>
+            <Button Foreground="Green" Content="&#xE118;" IsEnabled="{Binding IsImageSelected}" Style="{StaticResource TextBlockButtonStyle}" FontFamily="Segoe MDL2 Assets" FontSize="34" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="DownloadClick" Grid.Column="3"/>
+            <Button Foreground="Green" Content="&#xE107;" IsEnabled="{Binding IsImageSelected}" Style="{StaticResource TextBlockButtonStyle}" FontFamily="Segoe MDL2 Assets" FontSize="34" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="RemoveClick" Grid.Column="4"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <GridView ItemsSource="{Binding Photos}" ItemContainerStyle="{StaticResource GridViewPhotoStyle}" SelectionChanged="SelectedPhotoChanged">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Background="White" Height="250" Width="250">
+                            <Image Source="{Binding Url}" Stretch="UniformToFill" />
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+        <ProgressRing Foreground="Green" IsActive="{Binding IsLoading}" Width="50" Height="50" Grid.Row="1"/>
+        <ProgressBar Foreground="Green" Value="{Binding Progress}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2"/>
+    </Grid>
+</Page>
